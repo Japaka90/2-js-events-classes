@@ -21,6 +21,7 @@ start.addEventListener('click', function() {
     console.log(step);       
     
     this.addEventListener('keydown', function(){
+        if (!event.shiftKey) {
         switch(event.code ) {
             case 'ArrowDown': move('div')
                           .add('margin-top', step)
@@ -38,7 +39,19 @@ start.addEventListener('click', function() {
                           .add('margin-left', step)
                           .end();            
             }
-        
+        }
+        else {
+        switch(event.code ) {    
+            case 'ArrowLeft': move('div')
+                              .rotate(step)
+                              .end();
+            break;
+            case 'ArrowRight': move('div')
+                              .rotate(-step)
+                              .end();
+            break;
+            }
+        }
         console.log(event.code)
         })  
     })
